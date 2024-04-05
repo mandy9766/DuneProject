@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class StartMenu : MonoBehaviour
 {
+
+    public AudioClip startMenuBGM;
     // Start is called before the first frame update
+    void Awake()
+    {
+        DataManager.Instance.dataManagerInitialize();
+
+    }
     void Start()
     {
+        SoundManager.Instance.PlayBGM(startMenuBGM);
+        GameManager.Instance.GameManagerLoad();
         
     }
 
