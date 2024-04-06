@@ -1,4 +1,5 @@
 using System.Collections;
+
 using System.Collections.Generic;
 using Palmmedia.ReportGenerator.Core;
 using UnityEngine;
@@ -12,19 +13,19 @@ public class DataManager : Singleton<DataManager>
     public TextAsset setting;
     public AllSetting settings;
 
-    PlayerData nowPlayer = new PlayerData();
-    string path;
-    string fileName = "save";
+    public PlayerData nowPlayer = new PlayerData();
+    public string path;
+    public int nowSlot;
+    
     void Start()
     {
-        path = Application.persistentDataPath +"/";
-        print(File.Exists(path + fileName));
+        path = Application.persistentDataPath +"/save";
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(nowPlayer.name);
     }
     public void dataManagerInitialize()
     {
@@ -39,12 +40,27 @@ public class DataManager : Singleton<DataManager>
     public void SaveData()
     {
         string nowPlayerData = JsonUtility.ToJson(nowPlayer);
-        File.WriteAllText(path+fileName,nowPlayerData);
+        File.WriteAllText(path+nowSlot.ToString(),nowPlayerData);
     }
     public void LoadData()
     {
-        string nowPlayerData = File.ReadAllText(path+fileName);
+        string nowPlayerData = File.ReadAllText(path+nowSlot.ToString());
         nowPlayer = JsonUtility.FromJson<PlayerData>(nowPlayerData);
+    }
+    public bool CheckFileExist(int number)
+    {
+        Debug.Log(File.Exists(path+number));
+        return File.Exists(path+number);
+        
+    }
+    public void SlotSetting(int number)
+    {
+        nowSlot = number;
+    }
+    public void DataClear()
+    {
+        nowSlot = -1;
+        nowPlayer = new PlayerData();
     }
 }
 
@@ -126,6 +142,8 @@ public class PlayerData
     public int level;
     public int stageNum;
     public int activatedSpicyUnitId;
+
+
 }
 
 #endregion 

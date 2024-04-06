@@ -31,6 +31,7 @@ public class MainScene : MonoBehaviour
     }
     public void OnClickGotoStartScene()
     {
+        DataManager.Instance.DataClear();
         LodingSceneControler.LoadScene("StartScene");
     }
     public void OnClickGameSetting()

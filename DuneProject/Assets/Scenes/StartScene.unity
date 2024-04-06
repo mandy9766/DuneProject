@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScene, Assembly-CSharp
-        m_MethodName: OnClickGameSettingClose
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickCloseLoadPlayerUi
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -414,7 +414,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36458954}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 69550574}
   - component: {fileID: 69550573}
   m_Layer: 5
-  m_Name: Player (1)
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +605,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 69550574}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickLoadPlayerButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &69550574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,7 +669,7 @@ GameObject:
   - component: {fileID: 206593240}
   - component: {fileID: 206593239}
   m_Layer: 5
-  m_Name: Cancel (2)
+  m_Name: Cancel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,7 +738,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 206593240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickCancelPlayerButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &206593240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,7 +910,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96cd8d1350944873842f8bd38a83c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NewPlayerPanel: {fileID: 297031417}
+  CancelPlayerPanel: {fileID: 1572143193}
+  LoadPlayerPanel: {fileID: 1937957994}
   startMenuBGM: {fileID: 8300000, guid: 18eb9eaa7f84e7243838882424de1105, type: 3}
+  slotText:
+  - {fileID: 1332446156}
+  - {fileID: 36458956}
+  - {fileID: 960382836}
+  newPlayerName: {fileID: 1598652424}
 --- !u!1 &297031417
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &297031418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -979,7 +1011,7 @@ GameObject:
   - component: {fileID: 331367900}
   - component: {fileID: 331367899}
   m_Layer: 5
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1048,7 +1080,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 331367900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickLoadPlayerButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &331367900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,7 +1213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 534836654}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickNewPlayerConfirmButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &534836654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,9 +1615,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScene, Assembly-CSharp
-        m_MethodName: OnClickGameSettingClose
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickCloseCancelPlayerUi
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2681,7 +2737,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960382834}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3150,7 +3206,7 @@ GameObject:
   - component: {fileID: 1094597349}
   - component: {fileID: 1094597348}
   m_Layer: 5
-  m_Name: Cancel
+  m_Name: Cancel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3219,7 +3275,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1094597349}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickCancelPlayerButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1094597349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4181,9 +4249,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainScene, Assembly-CSharp
-        m_MethodName: OnClickGameSettingClose
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickCloseNewPlayerUi
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4384,7 +4452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1572143194
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4865,7 +4933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1937957995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4944,7 +5012,7 @@ GameObject:
   - component: {fileID: 1958025305}
   - component: {fileID: 1958025304}
   m_Layer: 5
-  m_Name: Player (2)
+  m_Name: Player3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5013,7 +5081,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1958025305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickLoadPlayerButton
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1958025305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5267,7 +5347,7 @@ GameObject:
   - component: {fileID: 2107059393}
   - component: {fileID: 2107059392}
   m_Layer: 5
-  m_Name: Cancel (1)
+  m_Name: Cancel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5336,7 +5416,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2107059393}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 269359910}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: OnClickCancelPlayerButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2107059393
 MonoBehaviour:
   m_ObjectHideFlags: 0
