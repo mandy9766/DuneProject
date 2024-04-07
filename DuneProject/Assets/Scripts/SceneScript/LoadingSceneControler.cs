@@ -23,13 +23,10 @@ public class LodingSceneControler : MonoBehaviour
     {
         StartCoroutine(LoadSceneProcess());
     }
-
-    // Update is called once per frame
     IEnumerator LoadSceneProcess()
     {
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
-
         float timer = 0f;
         while(!op.isDone)
         {

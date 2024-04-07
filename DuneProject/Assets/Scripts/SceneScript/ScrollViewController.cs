@@ -10,13 +10,10 @@ public class ScrollViewController : MonoBehaviour
     public float space = 50f;
     public GameObject uiPrefab;
     public List<RectTransform> uiObjects = new List<RectTransform>();
-    // Start is called before the first frame update
     void Start()
     {
         scrollRect = GetComponent<ScrollRect>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         

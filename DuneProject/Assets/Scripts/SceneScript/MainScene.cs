@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MainScene : MonoBehaviour
 {
-
     public GameObject gamePanel;
     public AudioClip mainMenuBGM;
     public Slider volumeSlider;
@@ -13,18 +12,16 @@ public class MainScene : MonoBehaviour
     {
         SoundManager.Instance.bgSound.volume = value;
         SoundManager.Instance.volumeScrollSetting(value);
+        DataManager.Instance.SetVolume(value);
+        DataManager.Instance.SaveSetting();
         // 데이터베이스 volume값 업데이트 및 저장
     }
-    // Start is called before the first frame update
     void Start()
     {
         SoundManager.Instance.PlayBGM(mainMenuBGM);
-        volumeSlider.value = SoundManager.Instance.Volume; //나중에 Database로 연동
+        volumeSlider.value = SoundManager.Instance.Volume; 
         volumeSlider.onValueChanged.AddListener(UpdateVolume);
     }
-   
-
-    // Update is called once per frame
     void Update()
     {
         
@@ -42,5 +39,4 @@ public class MainScene : MonoBehaviour
     {
         gamePanel.SetActive(!gamePanel.activeInHierarchy);
     }
-  
 }

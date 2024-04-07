@@ -8,19 +8,18 @@ public class SoundManager : Singleton<SoundManager>
     
     public AudioSource bgSound;
     private float volume; 
-    
-    public float Volume{
+    public float Volume
+    {
         get { return volume; } 
     }
-
     void Start()
     {
 
-    
     }
     public void volumeSetting()
     {
-        volume = DataManager.Instance.settings.setting[0].volume*0.01f;
+            DataManager.Instance.LoadSetting();
+            volume = DataManager.Instance.GetVolume();
     }
     public void volumeScrollSetting(float value)
     {
@@ -42,6 +41,4 @@ public class SoundManager : Singleton<SoundManager>
             Debug.Log("Bgm 컴포넌트 Scene에 없음");
         }
     }
-    
-
 }
