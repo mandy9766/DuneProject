@@ -17,28 +17,38 @@ private ObjectPool objectPool;
         GameObject panelInstance = objectPool.GetPanelObjectFromPool(panelId);
         if(panelInstance != null)
         {
-            Debug.Log(panelInstance);
             if(behaviour == PanelShowBehaviour.HIDE_PREVIOUS && GetAmountPanelIsInQueue()>0)
             {
-
-                var lastPanel = GetLastPanel();
-                if(lastPanel != null)
+                // Hide로 선언하여 함수 실행됐을 때 나머지 패널을 전부 비활성화 하는 코드
+                for (int i = 0;i<GetAmountPanelIsInQueue();i++)
                 {
-                    lastPanel.panelInstance.SetActive(false);  
+                    if(listInstance[i] != null)
+                        listInstance[i].panelInstance.SetActive(false);
                 }
+
+                // 바로 이전 패널만을 비활성화 하도록 하는 코드
+                //var lastPanel = GetLastPanel();
+                //if(lastPanel != null)
+                //{
+                //  lastPanel.panelInstance.SetActive(false);  
+                //}
             }
             listInstance.Add(new PanelInstanceModel
             {
                 panelId = panelId,
                 panelInstance = panelInstance
             });
-            Debug.Log(listInstance);
         }
         else
         {
             Debug.LogWarning("패널아이디가 없습니다");
         }
     }
+    
+    /// <summary>
+    /// Warning 팝업을 추가하려면 이곳에 panelId에 조건 추가할 것 
+    /// lastPanel의 값을 조회해서 Waring Panel들의 경우 전부 지우고, Warning이 아닌경우 마지막으로 활성화된 패널을 활성화.
+    /// </summary>
     public void HideLastPanel()
     {
         if(AnyPanelShowing())
@@ -49,11 +59,32 @@ private ObjectPool objectPool;
             if(GetAmountPanelIsInQueue()>0)
             {
                 lastPanel = GetLastPanel();
-                if(lastPanel != null && !lastPanel.panelInstance.activeInHierarchy)
+                if(ThisIsWarningPanel(lastPanel.panelId))
+                {
+                    HideLastPanel();
+                }
+                else if(lastPanel != null && !lastPanel.panelInstance.activeInHierarchy)
                 {
                     lastPanel.panelInstance.SetActive(true);
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Warning 팝업을 추가하려면 이곳에 panelId에 조건 추가할 것 
+    /// </summary>
+    /// <param name="panelId"></param>
+    /// <returns></returns>
+    public bool ThisIsWarningPanel(string panelId)
+    {
+        if(panelId == "NoPlayerWarningPanel")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     public PanelInstanceModel GetLastPanel()

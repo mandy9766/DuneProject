@@ -557,6 +557,7 @@ MonoBehaviour:
   - {fileID: 2116993860411236309, guid: ba051a71dde174c8cb729b0ffdbb99ef, type: 3}
   - {fileID: 7177551166808636083, guid: 10c47519e450041bd9f0cd5506f1c9f6, type: 3}
   - {fileID: 1559717966834939794, guid: 068e2406e562747199bb442b50c709ce, type: 3}
+  - {fileID: 5881466008491811248, guid: 49a99c9b5a96945a185e15498690dd6e, type: 3}
   centerUiVector: {x: 960, y: 540, z: 0}
 --- !u!4 &668685887
 Transform:

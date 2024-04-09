@@ -6,17 +6,18 @@ public class SceneControlManager : Singleton<SceneControlManager>
 {
     public void GoMainScene()
     {
-        HideAllPanel();
+        UiManager.Instance.HideAllPanel();
         LodingSceneControler.LoadScene("MainScene");
+        EventManager.Instance.RemoveRedundancies();
     }
     public void GoStartScene()
     {
-        HideAllPanel();
+        UiManager.Instance.HideAllPanel();
+        EventManager.Instance.PostNotification(EventType.eGoToStartScene,this);
         DataManager.Instance.DataClear();
         LodingSceneControler.LoadScene("StartScene");
+        EventManager.Instance.RemoveRedundancies();
+
     }
-    public void HideAllPanel()
-    {
-        UiManager.Instance.HideAllPanel();
-    }
+
 }

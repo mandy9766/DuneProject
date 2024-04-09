@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using TMPro;
-public class LoadPlayerPanelScript : MonoBehaviour
+public class LoadPlayerPanelScript : MonoBehaviour , IListener
 {
     public TextMeshProUGUI[] slotText;
 
     private void Start() 
     {
+        EventManager.Instance.AddListener(EventType.eSlotChanged,this);
         SlotTextSetting();
+    }
+    
+    public void OnEvent(EventType eventType, Component sender, object Param = null)
+    {
+        switch(eventType)
+        {
+            case EventType.eSlotChanged :
+                oneSlotTextSetting((int)Param);
+                break;
+        }
     }
 
     public void OnClickLoadPlayerButton(int number)
@@ -23,6 +34,19 @@ public class LoadPlayerPanelScript : MonoBehaviour
         else // 저장된 데이터가 없을 때 
         {
             UiManager.Instance.ShowPanel("NewPlayer",PanelShowBehaviour.HIDE_PREVIOUS);
+        }
+    }
+    private void oneSlotTextSetting(int number)
+    {
+        if(DataManager.Instance.CheckFileExist(number))
+        {
+            DataManager.Instance.SlotSetting(number);
+            DataManager.Instance.LoadData();
+            slotText[number-1].text = DataManager.Instance.nowPlayer.name;
+        }
+        else
+        {
+            slotText[number-1].text = "Empty";
         }
     }
      private void SlotTextSetting()
@@ -51,7 +75,7 @@ public class LoadPlayerPanelScript : MonoBehaviour
         }
         else // 저장된 데이터가 없을 때 
         { 
-            Debug.Log("데이터가 없습니다.");
+            UiManager.Instance.ShowPanel("NoPlayerWarningPanel",PanelShowBehaviour.KEEP_PREVIOUS);
             DataManager.Instance.DataClear();// 저장된 데이터가 없습니다 라는 떴다 사라지는 팝업 출력, 데이터 초기화
         }
     }
