@@ -12,9 +12,6 @@ public class StartMenu : MonoBehaviour
     public AudioClip startMenuBGM;
 
 
-    void Awake()
-    {
-    }
     void Start()
     {
         StartCoroutine(StartSettingCoroutine());
@@ -31,10 +28,8 @@ public class StartMenu : MonoBehaviour
     public IEnumerator StartSettingCoroutine()
     {
         yield return null;
-        
         SoundManager.Instance.volumeSetting();
         SoundManager.Instance.PlayBGM(startMenuBGM);
-        
     }
     public void OnClickQuit()
     {

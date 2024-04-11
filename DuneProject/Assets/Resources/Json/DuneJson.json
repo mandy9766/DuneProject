@@ -1,0 +1,172 @@
+{
+  "stage": [
+    {
+      "stageId": "0",
+      "stageNum": "1",
+      "stageName": "stage 1-1",
+      "horizontalSize": "6",
+      "verticalSize": "6",
+      "emptyPlace": null,
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "1",
+      "stageNum": "1",
+      "stageName": "stage 1-2",
+      "horizontalSize": "7",
+      "verticalSize": "4",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "1",
+      "playerStartPointY": "1",
+      "enemyStartPointX": "7",
+      "enemyStartPointY": "2"
+    },
+    {
+      "stageId": "2",
+      "stageNum": "1",
+      "stageName": "stage 1-3",
+      "horizontalSize": "7",
+      "verticalSize": "8",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "3",
+      "stageNum": "1",
+      "stageName": "stage 1-4",
+      "horizontalSize": "5",
+      "verticalSize": "10",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "4",
+      "stageNum": "1",
+      "stageName": "stage 1-5",
+      "horizontalSize": "9",
+      "verticalSize": "7",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "5",
+      "stageNum": "2",
+      "stageName": "stage 2-1",
+      "horizontalSize": "6",
+      "verticalSize": "6",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "6",
+      "stageNum": "2",
+      "stageName": "stage 2-2",
+      "horizontalSize": "7",
+      "verticalSize": "4",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "7",
+      "stageNum": "2",
+      "stageName": "stage 2-3",
+      "horizontalSize": "7",
+      "verticalSize": "8",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "8",
+      "stageNum": "2",
+      "stageName": "stage 2-4",
+      "horizontalSize": "5",
+      "verticalSize": "10",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "9",
+      "stageNum": "2",
+      "stageName": "stage 2-5",
+      "horizontalSize": "9",
+      "verticalSize": "7",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "10",
+      "stageNum": "3",
+      "stageName": "stage 3-1",
+      "horizontalSize": "6",
+      "verticalSize": "6",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "11",
+      "stageNum": "3",
+      "stageName": "stage 3-2",
+      "horizontalSize": "7",
+      "verticalSize": "4",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "12",
+      "stageNum": "3",
+      "stageName": "stage 3-3",
+      "horizontalSize": "7",
+      "verticalSize": "8",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    },
+    {
+      "stageId": "13",
+      "stageNum": "3",
+      "stageName": "stage 3-4",
+      "horizontalSize": "5",
+      "verticalSize": "10",
+      "emptyPlace": "3.2/3.3/3.4",
+      "playerStartPointX": "3",
+      "playerStartPointY": "6",
+      "enemyStartPointX": "3",
+      "enemyStartPointY": "6"
+    }
+  ]
+}

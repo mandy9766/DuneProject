@@ -5,12 +5,15 @@ using Palmmedia.ReportGenerator.Core;
 using UnityEngine;
 using System.IO;
 using TMPro;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 
 
 public class DataManager : Singleton<DataManager>
 {
-    private TextAsset data;
-    private AllData datas;
+    private TextAsset dataJson;
+    private AllData allData;
     public PlayerData nowPlayer = new PlayerData();
     public SettingData nowSetting;
     public string path;
@@ -19,21 +22,86 @@ public class DataManager : Singleton<DataManager>
     
     void Start()
     {
-        dataManagerInitialize();
+        DataManagerInitialize();
+        DataPreprocessing();
     }
 
     void Update()
     {
         Debug.Log(nowPlayer.name);
     }
-    public void dataManagerInitialize()
+    public void DataManagerInitialize()
     {
         path = Application.persistentDataPath +"/save";
         settingPath = path+"Setting";
-        data = Resources.Load("Json/Dune") as TextAsset;
-        datas = JsonUtility.FromJson<AllData>(data.text);
-       
+        dataJson = Resources.Load("Json/DuneJson") as TextAsset;
+        allData = JsonUtility.FromJson<AllData>(dataJson.text);
         Debug.Log("데이터매니저 초기 로드");
+    }
+    /// <summary>
+    /// 1.EmptyPlace 좌표값 전처리
+    /// </summary>
+    public void DataPreprocessing()
+    {
+        // EmptyPlace 좌표값 전처리
+        foreach(StageData stage in allData.stage)
+        {
+            if(stage.emptyPlace == "")
+            {
+                stage._emptyPlaceCoordinates = null;
+            }
+            else
+            {
+                stage._emptyPlaceCoordinates = new List<Coordinate>();
+                string[] splitDatas = stage.emptyPlace.Split('/');
+                foreach (string splitData in splitDatas)
+                {
+                    string[] secondSplitDatas = splitData.Split('.');
+                    Coordinate cor = new Coordinate(int.Parse(secondSplitDatas[0]),int.Parse(secondSplitDatas[1]));
+                    stage._emptyPlaceCoordinates.Add(cor);
+                }
+            }
+        }
+    }
+    public StageData[] GetStageData()
+    {
+        return allData.stage;
+    }
+    public int GetLastStageNum()
+    {
+        Debug.Log(allData.stage[allData.stage.Length-1].stageName);
+        return allData.stage[allData.stage.Length-1].stageNum;
+    }
+    public int GetLastStageId()
+    {
+        return allData.stage[allData.stage.Length-1].stageId;
+    }
+    public int GetStageCount(int num)
+    {
+        int count =0;
+        foreach(StageData stageData in allData.stage)
+        {
+            if(stageData.stageNum == num)
+                count ++;
+        }
+        return count;
+    }
+    public bool IsThisStage(int id,int num)
+    {
+        if(allData.stage[id].stageNum == num)
+            return true;
+        else
+            return false;
+    }
+    public string GetStageName(int id)
+    {
+        foreach(StageData stage in allData.stage)
+        {
+            if(stage.stageId == id)
+                return stage.stageName;
+        }
+        Debug.Log("ID에 맞는 스테이지 없음");
+        return null;
     }
     public void SaveSetting()
     {
@@ -117,14 +185,18 @@ public class DataManager : Singleton<DataManager>
         File.Delete(path+nowSlot);
         DataClear();
     }
+    
 }
+
 
 #region 데이터클래스
 
 [System.Serializable]
+
+
 public class AllData
 {
-    public MapData[] stage;
+    public StageData[] stage;
     public SoundData[] sound;
     public spicyUnit[] spicyUnit;
     public wormUnit[] wormInit;
@@ -140,13 +212,22 @@ public class AllSetting
 }
 
 
+
+
 [System.Serializable]
-public class MapData
+public class StageData
 {
-    public int stageID;
+    public int stageId;
+    public int stageNum;
     public string stageName;
-    public int x;
-    public int y;
+    public int horizontalSize;
+    public int verticlaSize;
+    public string emptyPlace;
+    public List<Coordinate> _emptyPlaceCoordinates;
+    public int playerStartPointX;
+    public int playerStartPointY;
+    public int enemyStartPointX;
+    public int enemyStartPointY;
 }
 
 [System.Serializable]
@@ -199,15 +280,9 @@ public class PlayerData
     public int activatedWormUnitId;
     public int activatedLandClearUnitId;
     public int activatedShoutSkillId;
-
-
-    
     public List<int> spicyUnitAvaiable;
     public List<int> wormUnitAvailable;
     public List<int> landClearingUnitAvailable;
     public List<int> shoutSkillAvailable;
-
-
 }
-
 #endregion 
