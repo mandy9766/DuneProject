@@ -7,11 +7,16 @@ public class MainScene : MonoBehaviour
 {
 
     public AudioClip mainMenuBGM;
+    public GameObject stageViewInstance;
+    public GameObject stageChoiceViewInstance;
+  
 
   
     void Start()
     {
         SoundManager.Instance.PlayBGM(mainMenuBGM);
+        stageViewInstance = UiManager.Instance.ShowView("StageView");
+        stageChoiceViewInstance = UiManager.Instance.ShowView("StageChoiceView");
     }
     void Update()
     {
@@ -19,6 +24,8 @@ public class MainScene : MonoBehaviour
     }
     public void OnClickGotoStartScene()
     {
+        ObjectPool.Instance.PoolObject(stageViewInstance);
+        ObjectPool.Instance.PoolObject(stageChoiceViewInstance);
         SceneControlManager.Instance.GoStartScene();
     }
     

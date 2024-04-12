@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1690389872507862100}
   - component: {fileID: 8763525409989412676}
   - component: {fileID: 6776655054513494359}
+  - component: {fileID: 6796491107136400929}
   m_Layer: 5
   m_Name: StagePrefab
   m_TagString: Untagged
@@ -254,4 +255,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8763525409989412676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6796491107136400929}
+        m_TargetAssemblyTypeName: StageButton, Assembly-CSharp
+        m_MethodName: OnClickStageButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6796491107136400929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805480649054177689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7566dfd331284ae6ae069c828568fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageName: {fileID: 2112627885706044722}

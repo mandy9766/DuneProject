@@ -30,6 +30,7 @@ public class StartMenu : MonoBehaviour
         yield return null;
         SoundManager.Instance.volumeSetting();
         SoundManager.Instance.PlayBGM(startMenuBGM);
+        
     }
     public void OnClickQuit()
     {

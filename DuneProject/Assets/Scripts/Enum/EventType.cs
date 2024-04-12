@@ -8,7 +8,9 @@ public enum EventType
     eGoToStartScene,
     eGoToMainScene,
     eSlotChanged,
-    eStageClicked
+    eStageClicked,
+    eReturnToStageChoice,
+    eOnClickStageButton
 #endregion
 }
 

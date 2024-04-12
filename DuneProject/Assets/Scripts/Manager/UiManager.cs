@@ -11,6 +11,12 @@ private ObjectPool objectPool;
     {
         objectPool = ObjectPool.Instance;
     }
+    public GameObject ShowView(string viewId)
+    {
+        GameObject viewInstance = objectPool.GetViewObjectFromPool(viewId);
+        return viewInstance;
+        
+    }
     public void ShowPanel(string panelId,PanelShowBehaviour behaviour = PanelShowBehaviour.HIDE_PREVIOUS)
     {
         
