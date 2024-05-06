@@ -4,16 +4,43 @@ using UnityEngine;
 
 public class UiManager : Singleton<UiManager>
 {
-private List<PanelInstanceModel> listInstance = new List<PanelInstanceModel>();
-private ObjectPool objectPool;
+    private List<PanelInstanceModel> listInstance = new List<PanelInstanceModel>();
+    private List<GameObject> stageButtons = new List<GameObject>();
+    private List<GameObject> stageChoiceButtons = new List<GameObject>();
+    private ObjectPool objectPool;
 
     void Start()
     {
         objectPool = ObjectPool.Instance;
     }
+    public GameObject ShowStageButton(string stageId)
+    {
+        GameObject stageInstance = objectPool.GetObjectFromPool(stageId);
+        if(stageInstance != null)
+        {
+            stageButtons.Add(stageInstance);
+        }
+        return stageInstance;
+    }
+    public void HideStageButton()
+    {
+        foreach(GameObject stageButton in stageButtons)
+        {
+            objectPool.PoolObject(stageButton);
+        }
+    }
+    public GameObject ShowStageChoiceButton(string stageId)
+    {
+        GameObject stageChoiceInstance = objectPool.GetObjectFromPool(stageId);
+        if(stageChoiceInstance != null)
+        {
+            stageChoiceButtons.Add(stageChoiceInstance);
+        }
+        return stageChoiceInstance;
+    }
     public GameObject ShowView(string viewId)
     {
-        GameObject viewInstance = objectPool.GetViewObjectFromPool(viewId);
+        GameObject viewInstance = objectPool.GetObjectFromPool(viewId);
         return viewInstance;
         
     }

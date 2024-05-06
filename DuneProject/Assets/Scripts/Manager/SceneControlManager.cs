@@ -12,6 +12,7 @@ public class SceneControlManager : Singleton<SceneControlManager>
     }
     public void GoStartScene()
     {
+        Debug.Log("여기가실행안돼?");
         UiManager.Instance.HideAllPanel();
         EventManager.Instance.PostNotification(EventType.eGoToStartScene,this);
         DataManager.Instance.DataClear();

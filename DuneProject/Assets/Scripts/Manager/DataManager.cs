@@ -63,6 +63,38 @@ public class DataManager : Singleton<DataManager>
             }
         }
     }
+    public int GetNowPlayerStageNumFromId()
+    {
+        foreach(StageData stageData in allData.stage)
+        {
+            if(stageData.stageId == nowPlayer.stageNum)
+                return stageData.stageNum;
+        }
+        Debug.Log("플레이어Id에 맞는 StageNum 없음");
+        return 0;
+    }
+    public bool VerifyStagePossible(string num)
+    {
+        if(int.Parse(num) <= GetNowPlayerStageNumFromId())
+            return true;
+        else
+            return false;
+    }
+    public int ConvertStageNameToId(string name)
+    {
+        foreach(StageData stageData in allData.stage)
+        {
+            if(stageData.stageName == name)
+                return stageData.stageId;
+        }
+        Debug.Log("같은 이름 없음");
+        return 0;
+    }
+    public int GetNowPlayerStage()
+    {
+        return nowPlayer.stageNum;
+    }
+    
     public StageData[] GetStageData()
     {
         return allData.stage;
@@ -165,7 +197,7 @@ public class DataManager : Singleton<DataManager>
         nowPlayer.name = name;
         nowPlayer.playerDataId = nowSlot;
         nowPlayer.level = 1;
-        nowPlayer.stageNum = 1;
+        nowPlayer.stageNum = 5;
         nowPlayer.activatedSpicyUnitId = 0;
         nowPlayer.activatedWormUnitId = 0;
         nowPlayer.activatedLandClearUnitId = 0;

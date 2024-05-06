@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
+using JetBrains.Annotations;
 
 public class StageChoiceController : MonoBehaviour ,IListener
 {
@@ -14,6 +15,9 @@ public class StageChoiceController : MonoBehaviour ,IListener
     public List<RectTransform> stageChoiceObjects = new List<RectTransform>();
     public List<NowStageSetting> nowStageSetting = new List<NowStageSetting>();
 
+    
+    
+
     void Start()
     {
         Debug.Log("이거 실행");
@@ -21,14 +25,25 @@ public class StageChoiceController : MonoBehaviour ,IListener
         StageChoiceSetting();
         EventManager.Instance.AddListener(EventType.eStageClicked,this);
         EventManager.Instance.AddListener(EventType.eReturnToStageChoice,this);
+        EventManager.Instance.AddListener(EventType.eGoToStartScene,this);
+        EventManager.Instance.AddListener(EventType.eMainSceneStarted,this);
+
 
     }
     private void Update() {
         Debug.Log(this.gameObject.name);
         
     }
-
     
+    public void DestroyStage()
+    {
+        foreach (RectTransform stageChoiceObject in stageChoiceObjects)
+        {
+            Destroy(stageChoiceObject.gameObject);
+        }
+        stageChoiceObjects = new List<RectTransform>();
+        nowStageSetting = new List<NowStageSetting>();
+    }
     public void OnEvent(EventType eventType, Component sender, object Param = null)
     {
         switch(eventType)
@@ -38,6 +53,12 @@ public class StageChoiceController : MonoBehaviour ,IListener
                 break;
             case EventType.eReturnToStageChoice :
                 ShowStageChoice();
+                break;
+            case EventType.eGoToStartScene :
+                DestroyStage();
+                break;
+            case EventType.eMainSceneStarted :
+                StageChoiceSetting();
                 break;
         }
     }

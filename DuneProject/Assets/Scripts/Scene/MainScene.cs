@@ -17,6 +17,8 @@ public class MainScene : MonoBehaviour
         SoundManager.Instance.PlayBGM(mainMenuBGM);
         stageViewInstance = UiManager.Instance.ShowView("StageView");
         stageChoiceViewInstance = UiManager.Instance.ShowView("StageChoiceView");
+        EventManager.Instance.PostNotification(EventType.eMainSceneStarted,this);
+
     }
     void Update()
     {

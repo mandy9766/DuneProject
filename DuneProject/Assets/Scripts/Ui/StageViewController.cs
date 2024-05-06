@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using System.Diagnostics.Tracing;
 
 public class StageViewController : MonoBehaviour ,IListener
 {
@@ -20,8 +21,10 @@ public class StageViewController : MonoBehaviour ,IListener
     void Start()
     {
         scrollRect = GetComponent<ScrollRect>();
+        Debug.Log("얘는언제실행");
         EventManager.Instance.AddListener(EventType.eStageClicked,this);
         EventManager.Instance.AddListener(EventType.eReturnToStageChoice,this);
+        EventManager.Instance.AddListener(EventType.eGoToStartScene,this);
 
         //StageChoiceSetting();
     }
@@ -34,6 +37,10 @@ public class StageViewController : MonoBehaviour ,IListener
                 break;
             case EventType.eReturnToStageChoice :
                 Debug.Log("dd");
+                DestroyStage();
+                break;
+            case EventType.eGoToStartScene :
+                Debug.Log("시ㄹ행됨");
                 DestroyStage();
                 break;
         }

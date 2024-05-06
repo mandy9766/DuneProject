@@ -6,11 +6,12 @@ public enum EventType
 {
 #region 아웃게임
     eGoToStartScene,
-    eGoToMainScene,
+    eGotoMainScene,
     eSlotChanged,
     eStageClicked,
     eReturnToStageChoice,
-    eOnClickStageButton
+    eOnClickStageButton,
+    eMainSceneStarted
 #endregion
 }
 

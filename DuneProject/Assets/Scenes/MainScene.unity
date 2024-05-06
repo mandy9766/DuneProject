@@ -842,6 +842,7 @@ GameObject:
   - component: {fileID: 1052027975}
   - component: {fileID: 1052027974}
   - component: {fileID: 1052027973}
+  - component: {fileID: 1052027976}
   m_Layer: 5
   m_Name: UnitSetting
   m_TagString: Untagged
@@ -912,7 +913,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1052027974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1052027976}
+        m_TargetAssemblyTypeName: ShowPanelButton, Assembly-CSharp
+        m_MethodName: DoShowPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1052027974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,6 +964,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052027971}
   m_CullTransparentMesh: 1
+--- !u!114 &1052027976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052027971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e02fbecdbc84e8b9549bb22a00ce30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelId: UnitSettingPanel
+  behaviour: 1
 --- !u!1 &1101842153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuBGM: {fileID: 8300000, guid: a59913d583f56ca4fa8922f12eb9d2b3, type: 3}
+  stageViewInstance: {fileID: 0}
+  stageChoiceViewInstance: {fileID: 0}
 --- !u!1 &1600882584
 GameObject:
   m_ObjectHideFlags: 0
